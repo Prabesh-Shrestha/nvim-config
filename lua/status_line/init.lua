@@ -1,5 +1,4 @@
 require('lualine').setup {
-
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -48,20 +47,48 @@ require'bufferline'.setup {
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline
   -- if set to 'both', will show buffer index and icons in the tabline
-  icons = true,
+  -- icons = { filetype = { enabled = true } };
+  -- -- If set, the icon color will follow its corresponding buffer
+  -- -- highlight group. By default, the Buffer*Icon group is linked to the
+  -- -- Buffer* group (see Highlighting below). Otherwise, it will take its
+  -- -- default value as defined by devicons.
+  -- icon_custom_colors = false,
 
-  -- If set, the icon color will follow its corresponding buffer
-  -- highlight group. By default, the Buffer*Icon group is linked to the
-  -- Buffer* group (see Highlighting below). Otherwise, it will take its
-  -- default value as defined by devicons.
-  icon_custom_colors = false,
+  -- -- Configure icons on the bufferline.
+  -- icons.separator.left = '▎',
+  -- icon_separator_inactive = '▎',
+  -- icon_close_tab = '',
+  -- icon_close_tab_modified = '●',
+icons = {
+    -- Configure the base icons on the bufferline.
+    buffer_index = false,
+    buffer_number = false,
+    button = '',
+    -- Enables / disables diagnostic symbols
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
+      [vim.diagnostic.severity.WARN] = {enabled = false},
+      [vim.diagnostic.severity.INFO] = {enabled = false},
+      [vim.diagnostic.severity.HINT] = {enabled = true},
+    },
+    filetype = {
+      custom_colors = false,
+      enabled = true,
+    },
+    separator = {left = '▎', right = ''},
+    -- Configure the icons on the bufferline when modified or pinned.
+    -- Supports all the base icon options.
+    modified = {button = '●'},
+    pinned = {button = '車', filename = true, separator = {right = ''}},
+    -- Configure the icons on the bufferline based on the visibility of a buffer.
+    -- Supports all the base icon options, plus `modified` and `pinned`.
+    alternate = {filetype = {enabled = false}},
+    current = {buffer_index = true},
+    inactive = {button = '×'},
+    visible = {modified = {buffer_number = false}},
+  },
 
-  -- Configure icons on the bufferline.
-  icon_separator_active = '▎',
-  icon_separator_inactive = '▎',
-  icon_close_tab = '',
-  icon_close_tab_modified = '●',
-  icon_pinned = '車',
+
 
   insert_at_end = false,
   insert_at_start = false,
@@ -80,11 +107,11 @@ require'bufferline'.setup {
 local nvim_tree_events = require('nvim-tree.events')
 local bufferline_state = require('bufferline.api')
 
-nvim_tree_events.on_tree_open(function ()
-  bufferline_state.set_offset(31, "File Tree")
-end)
+-- nvim_tree_events.on_tree_open(function ()
+--   bufferline_state.set_offset(31, "File Tree")
+-- end)
 
-nvim_tree_events.on_tree_close(function ()
-  bufferline_state.set_offset(0)
-end)
+-- nvim_tree_events.on_tree_close(function ()
+--   bufferline_state.set_offset(0)
+-- end)
 

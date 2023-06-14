@@ -1,4 +1,3 @@
-
 -- core
 require("settings")
 require("plugins")
@@ -7,6 +6,7 @@ require("status_line")
 require("terminal")
 require("file_explorer")
 require("tree_sitter")
+
 require("git")
 
 
@@ -18,6 +18,5 @@ require("themes.tokyonight")
 require("lang_server.server")
 require("lang_server.nvim-cmp")
 
--- languages 
+-- languages
 require("lang.rust")
-
