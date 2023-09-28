@@ -28,6 +28,7 @@ return require("packer").startup(
 
         -- color schemes
         use("folke/tokyonight.nvim")
+        -- use("rebelot/kanagawa.nvim")
 
         -- lsp
         use {
