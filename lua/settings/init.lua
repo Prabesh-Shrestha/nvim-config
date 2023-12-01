@@ -22,8 +22,6 @@ set.cursorline = true
 set.hidden = true
 set.mouse = 'a'
 set.shell = "fish"
+set.pumheight = 10
 
-require("ibl").setup {
-    show_current_context = true,
-    show_current_context_start = true,
-}
+require("ibl").setup()

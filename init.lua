@@ -1,5 +1,7 @@
 -- core
 require("settings")
+
+
 require("plugins")
 require("maps")
 require("status_line")

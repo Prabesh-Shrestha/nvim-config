@@ -19,13 +19,13 @@ local opts = {
 		},
 		hover_actions = {
 			border = {
-				{ "╭", "FloatBorder" },
+				{ "┌", "FloatBorder" },
 				{ "─", "FloatBorder" },
-				{ "╮", "FloatBorder" },
+				{ "┐", "FloatBorder" },
 				{ "│", "FloatBorder" },
-				{ "╯", "FloatBorder" },
+				{ "┘", "FloatBorder" },
 				{ "─", "FloatBorder" },
-				{ "╰", "FloatBorder" },
+				{ "└", "FloatBorder" },
 				{ "│", "FloatBorder" },
 			},
 

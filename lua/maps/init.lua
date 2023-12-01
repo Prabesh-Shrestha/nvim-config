@@ -8,6 +8,12 @@ map('v', '<C-c>', '"+y', opts)
 map('v', '<C-v>', '"+p', opts)
 
 -- splits
+-- map('n', '<C-S>', ':split<CR>', opts)
+-- map('n', '<C-s>', ':vs<CR>', opts)
+
+-- saving 
+map('n', 'ss', ':w<CR>', opts)
+
 -- movement
 map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-j>', '<C-w>j', opts)
@@ -87,7 +93,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        -- vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, opts)
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set('n', '<space>wl', function()
