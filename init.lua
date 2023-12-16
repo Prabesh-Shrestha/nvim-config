@@ -14,7 +14,8 @@ require("git")
 
 -- color schemes
 -- require("colorizer")
-require("themes.tokyonight")
+-- require("themes.tokyonight")
+require("themes.catppuccin")
 
 -- language server
 require("lang_server.server")

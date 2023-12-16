@@ -12,7 +12,7 @@ map('v', '<C-v>', '"+p', opts)
 -- map('n', '<C-s>', ':vs<CR>', opts)
 
 -- saving 
-map('n', 'ss', ':w<CR>', opts)
+map('n', 'ns', ':w<CR>', opts)
 
 -- movement
 map('n', '<C-h>', '<C-w>h', opts)
@@ -34,14 +34,18 @@ map('n', 'sq', ':wqa<CR>', opts)
 map('n', 'nq', ':qa!<CR>', opts)
 
 -- telescope
-map('n', 'ff', ':Telescope find_files<CR>', opts)
-map('n', 'fg', ':Telescope live_grep<CR>', opts)
+
+map('n', 'nf', ':Telescope find_files<CR>', opts)
+map('n', 'ng', ':Telescope live_grep<CR>', opts)
 map('n', 'tfc', ':Telescope commands<CR>', opts)
 map('n', 'tfh', ':Telescope command_history<CR>', opts)
 map('n', 'tfk', ':Telescope keymaps<CR>', opts)
 
+----terminal 
+--map('n', [[<c-\>]], ':ToggleTerm<CR>', opts)
+
 -- nvimtree
-map('n', 'nb', ':NvimTreeToggle<CR>', opts)
+map('n', 'nw', ':NvimTreeClose<CR>', opts)
 map('n', 'nt', ':NvimTreeOpen<CR>', opts)
 
 

@@ -1,12 +1,12 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'ayu_dark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
   },
   sections = {
     lualine_a = {'mode'},
@@ -25,7 +25,7 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {}
+  extensions = {'nvim-tree', 'toggleterm', 'mason'}
 }
 
 require'bufferline'.setup {

@@ -28,6 +28,9 @@ return require("packer").startup(
 
         -- color schemes
         use("folke/tokyonight.nvim")
+        use("ellisonleao/gruvbox.nvim")
+        use { "catppuccin/nvim", as = "catppuccin" }
+
         -- use("rebelot/kanagawa.nvim")
 
         -- lsp
@@ -52,7 +55,7 @@ return require("packer").startup(
         use("jiangmiao/auto-pairs")
         use("lukas-reineke/indent-blankline.nvim")
         use("tpope/vim-commentary")
-        use("andweeb/presence.nvim")
+        -- use("andweeb/presence.nvim")
         use("lewis6991/gitsigns.nvim")
         use("simrat39/rust-tools.nvim")
     end)
