@@ -10,6 +10,7 @@ require("file_explorer")
 require("tree_sitter")
 
 require("git")
+require("telescope")
 
 
 -- color schemes

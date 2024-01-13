@@ -56,10 +56,10 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<Tab>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
-        ['<C-g>'] = function()
+        ['<C-k>'] = function()
             if cmp.visible_docs() then
                 cmp.close_docs()
             else
@@ -95,8 +95,8 @@ cmp.setup {
     },
     window = {
         completion = {
-            scrollbar=true,
-            max_height=8,
+            scrollbar = true,
+            max_height = 8,
             border = border "CmpBorder",
             winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
             pumheight = 8,
@@ -113,26 +113,33 @@ cmp.setup {
     },
 
     formatting = {
-        fields = { "menu", "abbr", "kind" },
+        fields = { "kind", "abbr", "menu" },
         -- fields = { 'kind', 'abbr' },
-        format = lspkind.cmp_format({
-            -- mode = 'symbol',
-            mode = 'symbol_text',
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function(entry, vim_item)
-                vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-                vim_item.menu = ({
-                    buffer = "[Buffer]",
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[LuaSnip]",
-                    nvim_lua = "[Lua]",
-                    latex_symbols = "[LaTeX]",
-                })[entry.source.name]
-                return vim_item
-            end
-        })
+        format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. kind_icons[strings[2]]
+            kind.menu = " " .. (strings[2] or "")
+            return kind
+        end,
+        -- format = lspkind.cmp_format({
+        --     -- mode = 'symbol',
+        --     mode = 'symbol_text',
+        --     maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        --     -- The function below will be called before any actual modifications from lspkind
+        --     -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+        --     before = function(entry, vim_item)
+        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+        --         vim_item.menu = ({
+        --             buffer = "[Buffer]",
+        --             nvim_lsp = "[LSP]",
+        --             luasnip = "[LuaSnip]",
+        --             nvim_lua = "[Lua]",
+        --             latex_symbols = "[LaTeX]",
+        --         })[entry.source.name]
+        --         return vim_item
+        --     end
+        -- })
     },
 }
 

@@ -11,7 +11,7 @@ map('v', '<C-v>', '"+p', opts)
 -- map('n', '<C-S>', ':split<CR>', opts)
 -- map('n', '<C-s>', ':vs<CR>', opts)
 
--- saving 
+-- saving
 map('n', 'ns', ':w<CR>', opts)
 
 -- movement
@@ -33,15 +33,8 @@ map('n', 'tk', '<C-w>t<C-w>K', opts)
 map('n', 'sq', ':wqa<CR>', opts)
 map('n', 'nq', ':qa!<CR>', opts)
 
--- telescope
 
-map('n', 'nf', ':Telescope find_files<CR>', opts)
-map('n', 'ng', ':Telescope live_grep<CR>', opts)
-map('n', 'tfc', ':Telescope commands<CR>', opts)
-map('n', 'tfh', ':Telescope command_history<CR>', opts)
-map('n', 'tfk', ':Telescope keymaps<CR>', opts)
-
-----terminal 
+----terminal
 --map('n', [[<c-\>]], ':ToggleTerm<CR>', opts)
 
 -- nvimtree
@@ -79,10 +72,10 @@ map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
