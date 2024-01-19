@@ -15,8 +15,9 @@ require("telescope")
 
 -- color schemes
 -- require("colorizer")
--- require("themes.tokyonight")
-require("themes.catppuccin")
+require("themes.tokyonight")
+-- require("themes.catppuccin")
+-- require("themes.github")
 
 -- language server
 require("lang_server.server")

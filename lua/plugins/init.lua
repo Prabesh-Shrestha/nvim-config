@@ -29,6 +29,7 @@ return require("packer").startup(
         -- color schemes
         use("folke/tokyonight.nvim")
         use("ellisonleao/gruvbox.nvim")
+        use({ 'projekt0n/github-nvim-theme' })
         use { "catppuccin/nvim", as = "catppuccin" }
 
         -- use("rebelot/kanagawa.nvim")

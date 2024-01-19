@@ -5,13 +5,19 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     hijack_cursor = true,
-
+    view = {
+        side = 'right',
+        width = 30
+    },
+    git = {
+        enable = false,
+        ignore = true,
+    },
     renderer = {
         group_empty = true,
         indent_markers = {
             enable = true,
         },
-
 
         icons = {
             git_placement = "signcolumn",
