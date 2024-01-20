@@ -1,7 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'ayu_dark',
+    theme = 'catppuccin',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -38,7 +38,6 @@ require'bufferline'.setup {
   -- Enables/disable clickable tabs
   --  - left-click: go to buffer
   --  - middle-click: delete buffer
-  clickable = true,
 
   -- Excludes buffers from the tabline
   exclude_ft = {'javascript'},
@@ -104,8 +103,8 @@ icons = {
   no_name_title = nil,
 }
 
-local nvim_tree_events = require('nvim-tree.events')
-local bufferline_state = require('bufferline.api')
+-- local nvim_tree_events = require('nvim-tree.events')
+-- local bufferline_state = require('bufferline.api')
 
 -- nvim_tree_events.on_tree_open(function ()
 --   bufferline_state.set_offset(31, "File Tree")
