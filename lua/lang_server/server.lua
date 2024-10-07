@@ -15,7 +15,7 @@ local lsp_flags = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-local servers = { "pyright", "rust_analyzer", "tsserver", "svelte", "emmet_ls", "jsonls", "gopls", "lua_ls" }
+local servers = { "pyright", "rust_analyzer", "ts_ls", "svelte", "emmet_ls", "jsonls", "gopls", "lua_ls" }
 
 require("mason").setup({
     ui = {
@@ -32,6 +32,9 @@ require("mason-lspconfig").setup({
 })
 require("mason-lspconfig").setup_handlers({
     function(server_name)
+        -- if server_name == "tsserver" then
+        --     server_name = "ts_ls"
+        -- end
         require("lspconfig")[server_name].setup({
             capabilities = capabilities,
             flags = lsp_flags,

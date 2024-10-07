@@ -1,4 +1,7 @@
+vim.loader.enable()
+
 local set = vim.opt
+
 
 set.expandtab = true
 set.smarttab = true

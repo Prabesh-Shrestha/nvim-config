@@ -5,17 +5,21 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     hijack_cursor = true,
-
     view = {
         side = 'right',
         cursorline = true,
-
         width = 30
     },
     git = {
         enable = false,
         ignore = true,
     },
+    actions = {
+        open_file = {
+            quit_on_open = true,
+        },
+    },
+
     renderer = {
         group_empty = true,
         indent_markers = {

@@ -1,7 +1,6 @@
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 
-local lspkind = require('lspkind')
 
 local kind_icons = {
     Text = '  ',
@@ -67,7 +66,7 @@ cmp.setup {
             end
         end,
         ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
         -- ['<Tab>'] = cmp.mapping(function(fallback)
@@ -113,13 +112,13 @@ cmp.setup {
     },
 
     formatting = {
-        fields = { "kind", "abbr", "menu" },
-        -- fields = { 'kind', 'abbr' },
+        -- fields = { "kind", "abbr", "menu" },
+        fields = { 'kind', 'abbr' },
         format = function(entry, vim_item)
             local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
             local strings = vim.split(kind.kind, "%s", { trimempty = true })
-            kind.kind = " " .. kind_icons[strings[2]]
-            kind.menu = " " .. (strings[2] or "")
+            kind.kind = "" .. kind_icons[strings[2]]
+            kind.menu = "" .. (strings[2] or "")
             return kind
         end,
         -- format = lspkind.cmp_format({
